@@ -4,15 +4,22 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 502935699135.dkr.ecr.us-east-1.amazonaws.com
+      
             
   build:
     commands:
       - echo Build started on `date`
       - mvn clean install
+      - docker build -t pritam .
+      - docker tag pritam:latest 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
                  
   post_build:
     commands:
       - echo Build completed on `date`
+      - docker push 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
+      -  printf'[{"name":"name","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest"}]' > imagedefinition.json
+      
      
 artifacts:
   files:
