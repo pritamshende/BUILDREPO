@@ -12,13 +12,13 @@ phases:
       - echo Build started on `date`
       - mvn clean install
       - mv target/ROOT.war ROOT.war
-      - docker build -t pritam .
-      - docker tag pritam:latest 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
+      - docker build -t linuxr .
+      - docker tag linuxr:latest 502935699135.dkr.ecr.us-east-1.amazonaws.com/linuxr:latest
                  
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
+      - docker push 502935699135.dkr.ecr.us-east-1.amazonaws.com/linuxr:latest
       - printf '[{"name":"latest","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/linuxr:latest"}]' > imagedefinitions.json
       
      
