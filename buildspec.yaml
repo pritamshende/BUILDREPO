@@ -19,10 +19,11 @@ phases:
     commands:
       - echo Build completed on `date`
       - docker push 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
-      -  printf'[{"name":"name","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest"}]' > imagedefinition.json
+      -  printf'[{"name":"pritam","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/pritamt"}]' > imagedefinition.json
       
      
 artifacts:
   files:
     - 'target/*.war'
+    -  imagedefinition.json
   discard-paths: yes
