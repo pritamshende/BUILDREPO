@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - docker push 502935699135.dkr.ecr.us-east-1.amazonaws.com/pritam:latest
-      - printf '[{"name":"latest","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/pritamt"}]' > imagedefinitions.json
+      - printf '[{"name":"latest","imageUri":"502935699135.dkr.ecr.us-east-1.amazonaws.com/linuxr:latest"}]' > imagedefinitions.json
       
      
 artifacts:
